@@ -1,6 +1,3 @@
-import 'package:clean_books/data/repository/users_repository_impl.dart';
-import 'package:clean_books/domain/repositories/users_repository.dart';
-import 'package:clean_books/domain/usecases/book_detail/get_random_book.dart';
 import 'package:clean_books/domain/usecases/login/validate_user_use_case.dart';
 import 'package:clean_books/presentation/views/login/bloc/bloc.dart';
 import 'package:http/http.dart' as http;
@@ -19,12 +16,7 @@ Future<void> initDependency() async {
     ..registerFactory(() => LoginBloc(sl()))
 
     // use cases
-    ..registerLazySingleton(() => GetRandomBook(sl()))
     ..registerLazySingleton(() => ValidateUserUseCase(sl()))
-
-    // Repository
-    ..registerLazySingleton<UsersRepository>(
-        () => UsersRepositoryImpl(sl(), sl()))
 
     // Data sources
 

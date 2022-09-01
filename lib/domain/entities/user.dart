@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+/// Entity class that represents a user model
 class User extends Equatable {
   const User({
     this.email,

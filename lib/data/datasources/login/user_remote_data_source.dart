@@ -1,10 +1,13 @@
 import 'package:clean_books/data/models/user_model.dart';
 import 'package:clean_books/domain/entities/user.dart';
 
+/// Abstract class for the User remote data source.
 abstract class UserRemoteDataSource {
+  /// Method to validate a  user in remote data.
   Future<User> validateUser(User user);
 }
 
+/// Implementation of the User remote data source
 class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   UserRemoteDataSourceImpl();
 

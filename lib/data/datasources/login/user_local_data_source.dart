@@ -1,13 +1,18 @@
 import 'package:clean_books/domain/entities/user.dart';
 
+/// Abstract class for the User local data source.
 abstract class UserLocalDataSource {
+  /// Method to validate a user in local data
   Future<bool> validateUser(User user);
 
+  /// Method to save a user in local data
   Future<bool> saveUser(User user);
 
+  ///Method to delete a user in local data
   void deleteUser(User user);
 }
 
+/// Implementation of the UserLocalDataSource
 class UserLocalDataSourceImpl implements UserLocalDataSource {
   UserLocalDataSourceImpl();
   List<User> userList = [];
@@ -20,7 +25,6 @@ class UserLocalDataSourceImpl implements UserLocalDataSource {
 
   @override
   Future<bool> saveUser(User user) async {
-    /// lista local
     await Future.delayed(Duration(seconds: 1));
     userList.add(user);
     return true;

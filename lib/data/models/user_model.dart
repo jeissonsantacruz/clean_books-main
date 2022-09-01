@@ -1,15 +1,11 @@
-// To parse this JSON data, do
-//
-//     final user = userFromJson(jsonString);
-
 import 'dart:convert';
-
 import 'package:clean_books/domain/entities/user.dart';
 
 UserModel userFromJson(String str) => UserModel.fromJson(json.decode(str));
 
 String userToJson(UserModel data) => json.encode(data.toJson());
 
+/// user model that extends the user entity
 class UserModel extends User {
   UserModel({
     this.email,

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter/material.dart';
 
+/// This class contains the  UI Login Screen
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
