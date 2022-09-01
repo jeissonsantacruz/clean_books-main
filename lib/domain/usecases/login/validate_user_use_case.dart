@@ -1,14 +1,14 @@
 import 'package:clean_books/domain/entities/user.dart';
-import 'package:clean_books/domain/repositories/users_repository.dart';
+import 'package:clean_books/domain/repositories/auth_repository.dart';
 import 'package:clean_books/injection_container.dart';
 
 class ValidateUserUseCase {
-  final UsersRepository usersRepository;
+  final AuthenticationRepository authRepository;
 
-  ValidateUserUseCase(UsersRepository? usersRepository)
-      : usersRepository = usersRepository ??= sl<UsersRepository>();
+  ValidateUserUseCase(AuthenticationRepository? authRepository)
+      : authRepository = authRepository ?? sl<AuthenticationRepository>();
 
-  Future<bool> call(User user) async {
-    return usersRepository.validateUser(user);
+  Future<User> call(User user) async {
+    return authRepository.loginUserByGoogle(user);
   }
 }

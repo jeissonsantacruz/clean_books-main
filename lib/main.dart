@@ -1,5 +1,5 @@
 import 'package:clean_books/core/router_manager.dart';
-import 'package:clean_books/presentation/views/welcome/ui/welcome_screen.dart';
+import 'package:clean_books/presentation/views/login/ui/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'injection_container.dart' as di;
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       theme: ThemeData(fontFamily: 'Gilroy'),
       debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
+      home: LoginScreen(),
       onGenerateRoute: routeManager.generateRouted,
     );
   }

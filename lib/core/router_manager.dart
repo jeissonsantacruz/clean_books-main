@@ -1,8 +1,6 @@
 import 'package:clean_books/core/framework/routes.dart';
 import 'package:clean_books/presentation/views/login/ui/login_screen.dart';
-import 'package:clean_books/presentation/views/welcome/ui/welcome_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 final RouteManager routeManager = RouteManager();
 
@@ -17,7 +15,7 @@ class RouteManager {
             builder: (BuildContext context) => LoginScreen());
       default:
         return MaterialPageRoute<void>(
-            builder: (BuildContext context) => const WelcomeScreen());
+            builder: (BuildContext context) => LoginScreen());
     }
   }
 

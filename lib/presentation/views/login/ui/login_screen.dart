@@ -16,6 +16,9 @@ class LoginScreen extends StatelessWidget {
     return BlocBuilder<bloc.LoginBloc, bloc.State>(
         bloc: blocProvider,
         builder: (context, state) {
+          if (state is bloc.ValidatingUserState) {
+            return Center(child: CircularProgressIndicator());
+          }
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[

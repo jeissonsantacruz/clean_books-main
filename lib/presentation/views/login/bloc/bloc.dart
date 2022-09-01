@@ -65,7 +65,14 @@ class LoginBloc extends bloc.Bloc<Event, State> {
 
   // Stream that set a filter
   Stream<State> _submitUserEvent(SubmitUserEvent event) async* {
-    try {} catch (error) {
+    try {
+      yield ValidatingUserState(state.model);
+      final User user = await validateUserUseCase.authRepository
+          .loginUserByGoogle(state.model.user ?? User());
+      if ((user.email ?? '').isNotEmpty) {
+        yield ValidatedUserState(state.model);
+      }
+    } catch (error) {
       yield ErrorState(
         state.model,
         error: error.toString(),

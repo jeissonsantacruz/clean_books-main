@@ -1,8 +1,4 @@
-import 'package:clean_books/data/datasources/book_detail/books_remote_datasource.dart';
-import 'package:clean_books/data/datasources/login/user_local_data_source.dart';
-import 'package:clean_books/data/repository/books_repository_impl.dart';
 import 'package:clean_books/data/repository/users_repository_impl.dart';
-import 'package:clean_books/domain/repositories/books_repository.dart';
 import 'package:clean_books/domain/repositories/users_repository.dart';
 import 'package:clean_books/domain/usecases/book_detail/get_random_book.dart';
 import 'package:clean_books/domain/usecases/login/validate_user_use_case.dart';
@@ -13,10 +9,10 @@ import 'package:get_it/get_it.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  await initBookDetail();
+  await initDependency();
 }
 
-Future<void> initBookDetail() async {
+Future<void> initDependency() async {
   //! Features - BookDetail
   // Blocs
   sl
@@ -27,14 +23,10 @@ Future<void> initBookDetail() async {
     ..registerLazySingleton(() => ValidateUserUseCase(sl()))
 
     // Repository
-    ..registerLazySingleton<BooksRepository>(() => BooksRepositpryImpl(sl()))
-    ..registerLazySingleton<UsersRepository>(() => UsersRepositoryImpl(sl()))
+    ..registerLazySingleton<UsersRepository>(
+        () => UsersRepositoryImpl(sl(), sl()))
 
     // Data sources
-    ..registerLazySingleton<BooksRemoteDataSource>(
-        () => BooksRemoteDataSourceImpl(sl()))
-    ..registerLazySingleton<UserLocalDataSource>(
-        () => UserLocalDataSourceImpl())
 
     //! External
     ..registerLazySingleton(() => http.Client());
