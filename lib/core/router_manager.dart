@@ -1,4 +1,3 @@
-import 'package:clean_books/core/framework/routes.dart';
 import 'package:clean_books/presentation/views/login/ui/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +9,6 @@ class RouteManager {
   Route<dynamic> generateRouted(RouteSettings settings) {
     // Method that redirect the route
     switch (settings.name) {
-      case kLoginRoute:
-        return MaterialPageRoute<void>(
-            builder: (BuildContext context) => LoginScreen());
       default:
         return MaterialPageRoute<void>(
             builder: (BuildContext context) => LoginScreen());

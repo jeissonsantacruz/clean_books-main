@@ -14,12 +14,8 @@ Future<void> initDependency() async {
   // Blocs
   sl
     ..registerFactory(() => LoginBloc(sl()))
-
     // use cases
     ..registerLazySingleton(() => ValidateUserUseCase(sl()))
-
-    // Data sources
-
     //! External
     ..registerLazySingleton(() => http.Client());
 }

@@ -21,7 +21,7 @@ class ErrorMessage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 20),
-          ElevatedButton(onPressed: onPressed, child: Text('Reintentar'))
+          ElevatedButton(onPressed: onPressed, child: Text("Reintentar"))
         ],
       ),
     );
