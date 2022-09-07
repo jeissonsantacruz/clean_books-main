@@ -1,6 +1,6 @@
 import 'package:clean_books/core/router_manager.dart';
 import 'package:flutter/material.dart';
-import 'injection_container.dart' as di;
+import 'core/injection_container.dart' as di;
 
 void main() async {
   await di.init();

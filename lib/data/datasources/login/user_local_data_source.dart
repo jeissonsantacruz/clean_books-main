@@ -15,28 +15,28 @@ abstract class UserLocalDataSource {
 /// Implementation of the UserLocalDataSource
 class UserLocalDataSourceImpl implements UserLocalDataSource {
   UserLocalDataSourceImpl();
-  List<User> userList = [];
+  final List<User> _userList = [];
+  final List<User> _usersValidates = <User>[
+    const User(email: 'maria', password: 'password'),
+    const User(email: 'pedro', password: '123456')
+  ];
+
   @override
   Future<bool> validateUser(User user) async {
     await Future.delayed(Duration(seconds: 1));
-    final bool result = usersValidates.contains(user);
+    final bool result = _usersValidates.contains(user);
     return result;
   }
 
   @override
   Future<bool> saveUser(User user) async {
     await Future.delayed(Duration(seconds: 1));
-    userList.add(user);
+    _userList.add(user);
     return true;
   }
 
   @override
   void deleteUser(User user) {
-    userList.remove(user);
+    _userList.remove(user);
   }
-
-  static const List<User> usersValidates = <User>[
-    const User(email: 'maria', password: 'password'),
-    const User(email: 'pedro', password: '123456')
-  ];
 }
