@@ -17,8 +17,8 @@ class UserLocalDataSourceImpl implements UserLocalDataSource {
   UserLocalDataSourceImpl();
   final List<User> _userList = [];
   final List<User> _usersValidates = <User>[
-    const User(email: 'maria', password: 'password'),
-    const User(email: 'pedro', password: '123456')
+    const User(email: 'user1', password: 'password1'),
+    const User(email: 'user2', password: 'password2'),
   ];
 
   @override
